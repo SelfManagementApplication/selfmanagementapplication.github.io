@@ -41,7 +41,7 @@ module.exports = "/*     --blue: #007bff;\r\n--indigo: #6610f2;\r\n--purple: #6f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\" class=\"mat-app-background\">\r\n\t<nav>\r\n\t\t<div class=\"container\">\r\n\t\t\t<div class=\"row\">\r\n\t\t\t\t<div class=\"col-10\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-2\">\r\n\t\t\t\t\t\t\t<img src=\"../assets/images/logo.png\" alt=\"SelfManagementApplication\" width=\"60\" height=\"60\">\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-10\"><h1>Self Management Application</h1></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\t\r\n\t\t\t\t<div class=\"col-1\">\r\n\t\t\t\t\t<div class=\"menuBtnWrap\">\r\n\t\t\t\t\t\t<button mat-button [matMenuTriggerFor]=\"menu\" class=\"menuBtn fa fa-bars fa-2x\"></button>\r\n\t\t\t\t\t\t<mat-menu #menu=\"matMenu\">\r\n\t\t\t\t\t\t\t<button mat-menu-item routerLink=\"main\">Задачі</button>\r\n\t\t\t\t\t\t\t<button mat-menu-item routerLink=\"info\">Інфо</button>\r\n\t\t\t\t\t\t</mat-menu>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div> \r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</nav>\r\n\t<div id=\"content\">\r\n\t\t<router-outlet></router-outlet>\t\t\r\n\t</div>\r\n</div>"
+module.exports = "<div id=\"wrapper\" class=\"mat-app-background\">\r\n\t<nav>\r\n\t\t<div class=\"container\">\r\n\t\t\t<div class=\"row\">\r\n\t\t\t\t<div class=\"col-10\">\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col-2\">\r\n\t\t\t\t\t\t\t<img src=\"../assets/images/logo.png\" alt=\"SelfManagementApplication\" width=\"60\" height=\"60\">\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"col-10 d-none d-md-block\"><h1>Self Management Application</h1></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\t\r\n\t\t\t\t<div class=\"col-1\">\r\n\t\t\t\t\t<div class=\"menuBtnWrap\">\r\n\t\t\t\t\t\t<button mat-button [matMenuTriggerFor]=\"menu\" class=\"menuBtn fa fa-bars fa-2x\"></button>\r\n\t\t\t\t\t\t<mat-menu #menu=\"matMenu\">\r\n\t\t\t\t\t\t\t<button mat-menu-item routerLink=\"main\">Задачі</button>\r\n\t\t\t\t\t\t\t<button mat-menu-item routerLink=\"info\">Інфо</button>\r\n\t\t\t\t\t\t</mat-menu>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div> \r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</nav>\r\n\t<div id=\"content\">\r\n\t\t<router-outlet></router-outlet>\t\t\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -329,7 +329,7 @@ var InfoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host * {\r\n\tfont-size: 18px;\r\n}\r\ntd {\r\n\twidth: 25% !important;\r\n\theight: 95px !important;\r\n}\r\n.newTaskNameInput {\r\n\twidth: 90%;\r\n\tmargin: 20px auto;\r\n}\r\n.newTaskAddButton {\r\n\tdisplay: inline-block;\r\n}\r\nbutton {\r\n\tbackground-color: $accent;\r\n}\r\n"
+module.exports = ":host * {\r\n\tfont-size: 18px;\r\n}\r\n#main {\r\n\toverflow-x: scroll;\r\n}\r\ntable {\r\n}\r\ntd {\r\n\twidth: 20% !important;\r\n\theight: 95px !important;\r\n}\r\n.newTaskNameInput {\r\n\twidth: 70%;\r\n\tmargin: 20px auto;\r\n}\r\n.newTaskAddButton {\r\n\tdisplay: inline-block;\r\n}\r\nbutton {\r\n\tbackground-color: $accent;\r\n}\r\n"
 
 /***/ }),
 
