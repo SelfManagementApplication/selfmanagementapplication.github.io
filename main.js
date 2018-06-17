@@ -395,6 +395,7 @@ var MainComponent = /** @class */ (function () {
     };
     MainComponent.prototype.addNew = function (name) {
         this.taskList.push({ name: name, priority: 0, isDone: false, editorMode: false, usedMethod: 'none' });
+        this.newTaskName = '';
     };
     MainComponent.prototype.storeTestData = function () {
         var testData = [
