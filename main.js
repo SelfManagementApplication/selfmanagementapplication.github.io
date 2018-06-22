@@ -101,12 +101,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
 /* harmony import */ var _info_info_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./info/info.component */ "./src/app/info/info.component.ts");
 /* harmony import */ var _data_storage_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./data-storage.service */ "./src/app/data-storage.service.ts");
+/* harmony import */ var _main_pareto_pareto_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main/pareto/pareto.component */ "./src/app/main/pareto/pareto.component.ts");
+/* harmony import */ var _main_abc_abc_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main/abc/abc.component */ "./src/app/main/abc/abc.component.ts");
+/* harmony import */ var _main_eizenhauer_eizenhauer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main/eizenhauer/eizenhauer.component */ "./src/app/main/eizenhauer/eizenhauer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -159,7 +165,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTooltipModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTreeModule"]
             ],
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _main_main_component__WEBPACK_IMPORTED_MODULE_7__["MainComponent"], _info_info_component__WEBPACK_IMPORTED_MODULE_8__["InfoComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _main_main_component__WEBPACK_IMPORTED_MODULE_7__["MainComponent"], _info_info_component__WEBPACK_IMPORTED_MODULE_8__["InfoComponent"], _main_pareto_pareto_component__WEBPACK_IMPORTED_MODULE_10__["ParetoComponent"], _main_abc_abc_component__WEBPACK_IMPORTED_MODULE_11__["AbcComponent"], _main_eizenhauer_eizenhauer_component__WEBPACK_IMPORTED_MODULE_12__["EizenhauerComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
@@ -206,7 +212,8 @@ var AppModule = /** @class */ (function () {
                 ])
             ],
             providers: [_data_storage_service__WEBPACK_IMPORTED_MODULE_9__["DataStorageService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
+            entryComponents: [_main_pareto_pareto_component__WEBPACK_IMPORTED_MODULE_10__["ParetoComponent"], _main_abc_abc_component__WEBPACK_IMPORTED_MODULE_11__["AbcComponent"], _main_eizenhauer_eizenhauer_component__WEBPACK_IMPORTED_MODULE_12__["EizenhauerComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -322,6 +329,146 @@ var InfoComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/main/abc/abc.component.css":
+/*!********************************************!*\
+  !*** ./src/app/main/abc/abc.component.css ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "[matInput] {\r\n\tborder-top: 1px black solid;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/main/abc/abc.component.html":
+/*!*********************************************!*\
+  !*** ./src/app/main/abc/abc.component.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{data.title}}</h1>\n<div mat-dialog-content class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12\">\n\t\t\t<mat-selection-list #taskList>\n\t\t\t<mat-list-option *ngFor=\"let task of data.taskList\" role=\"listitem\">{{task.name}}</mat-list-option>\n\t\t\t</mat-selection-list>\n\t\t</div>\n\t\t<div class=\"col-12\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t<h4>Завдання А</h4>\n\t\t\t\t\t<h4>Найважливіші</h4>\n\t\t\t\t\t<textarea placeholder=\"{{data.aTasks}}\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t<h4>Завдання Б</h4>\n\t\t\t\t\t<h4>Важливі</h4>\n\t\t\t\t\t<textarea placeholder=\"{{data.bTasks}}\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t<h4>Завдання В</h4>\n\t\t\t\t\t<h4>Менш важливі</h4>\n\t\t\t\t\t<textarea placeholder=\"{{data.cTasks}}\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\n</div>\n<div mat-dialog-actions>\n\t\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/main/abc/abc.component.ts":
+/*!*******************************************!*\
+  !*** ./src/app/main/abc/abc.component.ts ***!
+  \*******************************************/
+/*! exports provided: AbcComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbcComponent", function() { return AbcComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var AbcComponent = /** @class */ (function () {
+    function AbcComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    AbcComponent.prototype.ngOnInit = function () { };
+    AbcComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-abc',
+            template: __webpack_require__(/*! ./abc.component.html */ "./src/app/main/abc/abc.component.html"),
+            styles: [__webpack_require__(/*! ./abc.component.css */ "./src/app/main/abc/abc.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+    ], AbcComponent);
+    return AbcComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/eizenhauer/eizenhauer.component.css":
+/*!**********************************************************!*\
+  !*** ./src/app/main/eizenhauer/eizenhauer.component.css ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "[matInput] {\r\n\tborder-top: 1px black solid;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/main/eizenhauer/eizenhauer.component.html":
+/*!***********************************************************!*\
+  !*** ./src/app/main/eizenhauer/eizenhauer.component.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{data.title}}</h1>\n<div mat-dialog-content class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-12\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t<h4>Важливі, менш термінові</h4>\n\t\t\t\t\t<textarea placeholder=\"Встановити термін виконання або делегувати\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t<h4>Важливі, термінові</h4>\n\t\t\t\t\t<textarea placeholder=\"Виконувати особисто без зволікання\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t<h4>Найменш важливі, найменш термінові</h4>\n\t\t\t\t\t<textarea placeholder=\"Відкласти виконання\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t<h4>Менш важливі, термінові</h4>\n\t\t\t\t\t<textarea placeholder=\"Передоручити(делегувати)\" cols=\"30\" rows=\"10\" matInput></textarea>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t\n</div>\n<div mat-dialog-actions>\n\t\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/main/eizenhauer/eizenhauer.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/main/eizenhauer/eizenhauer.component.ts ***!
+  \*********************************************************/
+/*! exports provided: EizenhauerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EizenhauerComponent", function() { return EizenhauerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var EizenhauerComponent = /** @class */ (function () {
+    function EizenhauerComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    EizenhauerComponent.prototype.ngOnInit = function () { };
+    EizenhauerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-eizenhauer',
+            template: __webpack_require__(/*! ./eizenhauer.component.html */ "./src/app/main/eizenhauer/eizenhauer.component.html"),
+            styles: [__webpack_require__(/*! ./eizenhauer.component.css */ "./src/app/main/eizenhauer/eizenhauer.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+    ], EizenhauerComponent);
+    return EizenhauerComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/main/main.component.css":
 /*!*****************************************!*\
   !*** ./src/app/main/main.component.css ***!
@@ -329,7 +476,7 @@ var InfoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host * {\r\n\tfont-size: 18px;\r\n}\r\n#main {\r\n\toverflow-x: hidden;\r\n}\r\ntd {\r\n\twidth: 20% !important;\r\n\theight: 95px !important;\r\n}\r\n.newTaskNameInput {\r\n\twidth: 100%;\r\n\tmargin: 20px auto;\r\n}\r\n.newTaskAddButton {\r\n\ttext-align: center;\r\n\tmin-width: auto !important;\r\n\tmargin: 36px auto;\r\n\tpadding: 0 0 !important;\r\n}\r\n.headerRowWrap {\r\n\ttext-align: center;\r\n\tmargin: 25px auto;\r\n}\r\n.headerBlockWrap {\r\n}\r\n.taskRowWrap {\r\n\tmin-height: 60px;\r\n\ttext-align: center;\r\n\tborder-bottom: 1px black solid;\r\n\tmargin: 10px auto;\r\n}\r\n@media (max-width: 576px) {\r\n\t:host * {\r\n\t\tfont-size: 13px;\r\n\t}\r\n}\r\n"
+module.exports = ":host * {\r\n\tfont-size: 18px;\r\n}\r\n#main {\r\n\toverflow-x: hidden;\r\n}\r\n.methods {\r\n\tmargin: 20px auto;\r\n\ttext-align: center;\r\n}\r\n.newTaskNameInput {\r\n\twidth: 100%;\r\n\tmargin: 20px auto;\r\n}\r\n.newTaskAddButton {\r\n\ttext-align: center;\r\n\tmin-width: auto !important;\r\n\tmargin: 36px auto;\r\n\tpadding: 0 0 !important;\r\n}\r\n.headerRowWrap {\r\n\ttext-align: center;\r\n\tmargin: 25px auto;\r\n}\r\n.headerBlockWrap {\r\n}\r\n.taskRowWrap {\r\n\tmin-height: 60px;\r\n\ttext-align: center;\r\n\tborder-bottom: 1px black solid;\r\n\tmargin: 10px auto;\r\n}\r\ninput[matInput] {\r\n\twidth: auto;\r\n}\r\n@media (max-width: 576px) {\r\n\t:host * {\r\n\t\tfont-size: 13px;\r\n\t}\r\n}\r\n"
 
 /***/ }),
 
@@ -340,7 +487,7 @@ module.exports = ":host * {\r\n\tfont-size: 18px;\r\n}\r\n#main {\r\n\toverflow-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-11\">\n\t\t\t\t<mat-form-field class=\"newTaskNameInput\">\n\t\t\t\t<input matInput placeholder=\"Нова задача\" [(ngModel)]=\"newTaskName\" />\n\t\t\t\t</mat-form-field>\n\t\t\t</div>\n\t\t\t<div class=\"col-1\">\n\t\t\t\t<button mat-button (click)=\"addNew(newTaskName)\" class=\"newTaskAddButton\"><i class=\" fa fa-plus fa-2x\"></i></button>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"headerRowWrap\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-2\"><div class=\"headerBlockWrap\">Виконано</div></div>\n\t\t\t\t<div class=\"col-4\"><div class=\"headerBlockWrap\">Назва задачі</div></div>\n\t\t\t\t<div class=\"col-3\"><div class=\"headerBlockWrap\">Пріорітет</div></div>\n\t\t\t\t<div class=\"col-3\"><div class=\"headerBlockWrap\">Елементи управління</div></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"taskRowWrap\" *ngFor=\"let task of taskList\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-2\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<mat-checkbox [(ngModel)]=\"task.isDone\"></mat-checkbox>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ? 'none': 'block'\">{{task.name}}</span>\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ?'block' : 'none'\">\n\t\t\t\t\t\t\t<mat-form-field >\n\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"task.name\">\n\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-3\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ? 'none': 'block'\">{{task.priority}}</span>\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ?'block' : 'none'\">\n\t\t\t\t\t\t\t<mat-form-field >\n\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"task.priority\">\n\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-3\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<button mat-button [style.display]=\"task.editorMode ? 'none': 'inline-block'\" (click)=\"edit(task)\"><i class='fa fa-edit fa-2x'></i></button>\n\t\t\t\t\t\t<button mat-button mat-raised-button [style.display]=\"task.editorMode ?'inline-block' : 'none'\" (click)=\"save(task)\"><i class='fa fa-save fa-2x'></i></button>\n\t\t\t\t\t\t<button mat-button><i class='fa fa-trash fa-2x' (click)=\"delete(task)\"></i></button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t\n\t</div>\n</div>\n<!-- <div class=\"col-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<table class=\"table table-bordered table-hover\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<th>Виконано</th>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<th>Назва задачі</th>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<th>Пріорітет</th>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<th>Елементи управління</th>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr *ngFor=\"let task of taskList\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td><mat-checkbox [(ngModel)]=\"task.isDone\"></mat-checkbox></td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [style.display]=\"task.editorMode ? 'none': 'block'\">{{task.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [style.display]=\"task.editorMode ?'block' : 'none'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-form-field >\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"task.name\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td><span [style.display]=\"task.editorMode ? 'none': 'block'\">{{task.priority}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [style.display]=\"task.editorMode ?'block' : 'none'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-form-field >\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"task.priority\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button [style.display]=\"task.editorMode ? 'none': 'inline-block'\" (click)=\"edit(task)\"><i class='fa fa-edit fa-2x'></i></button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button mat-raised-button [style.display]=\"task.editorMode ?'inline-block' : 'none'\" (click)=\"save(task)\"><i class='fa fa-save fa-2x'></i></button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button><i class='fa fa-trash fa-2x' (click)=\"delete(task)\"></i></button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t</div>\n</div> -->"
+module.exports = "<div id=\"main\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-12\">\n\t\t\t\t<div class=\"methods\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t\t\t<button mat-button class=\"method\" (click)=\"usePareto(taskList)\">Принцип Парето</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t\t\t<button mat-button class=\"method\" (click)=\"useAbc(taskList)\">Аналіз АБВ</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-4\">\n\t\t\t\t\t\t\t<button mat-button class=\"method\" (click)=\"useEizenhauer(taskList)\">Принцип Ейзенхауера</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-11\">\n\t\t\t\t<mat-form-field class=\"newTaskNameInput\">\n\t\t\t\t<input matInput placeholder=\"Нова задача\" [(ngModel)]=\"newTaskName\" (keydown)=\"enterAddTask($event, newTaskName)\" />\n\t\t\t\t</mat-form-field>\n\t\t\t</div>\n\t\t\t<div class=\"col-1\">\n\t\t\t\t<button mat-button (click)=\"addNew(newTaskName)\" class=\"newTaskAddButton\"><i class=\" fa fa-plus fa-2x\"></i></button>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"headerRowWrap\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-2 col-md-2\"><div class=\"headerBlockWrap\">Виконано</div></div>\n\t\t\t\t<div class=\"col-8 col-md-4\"><div class=\"headerBlockWrap\">Назва задачі</div></div>\n\t\t\t\t<div class=\"col-2 col-md-3\"><div class=\"headerBlockWrap\">Пріорітет</div></div>\n\t\t\t\t<div class=\"col-3 d-none d-md-block \"><div class=\"headerBlockWrap\">Елементи управління</div></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"taskRowWrap\" *ngFor=\"let task of taskList\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-2 col-md-2\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<mat-checkbox [(ngModel)]=\"task.isDone\"></mat-checkbox>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-8 col-md-4\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ? 'none': 'block'\">{{task.name}}</span>\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ?'block' : 'none'\">\n\t\t\t\t\t\t\t<mat-form-field >\n\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"task.name\">\n\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-2 col-md-3\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ? 'none': 'block'\">{{task.priority}}</span>\n\t\t\t\t\t\t<span [style.display]=\"task.editorMode ?'block' : 'none'\">\n\t\t\t\t\t\t\t<mat-form-field >\n\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"task.priority\" (change)=\"handlePriorityChange(taskList)\">\n\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12 col-md-3\">\n\t\t\t\t\t<div class=\"blockWrap\">\n\t\t\t\t\t\t<button mat-button [style.display]=\"task.editorMode ? 'none': 'inline-block'\" (click)=\"edit(task)\"><i class='fa fa-edit fa-2x'></i></button>\n\t\t\t\t\t\t<button mat-button mat-raised-button [style.display]=\"task.editorMode ?'inline-block' : 'none'\" (click)=\"save(task)\"><i class='fa fa-save fa-2x'></i></button>\n\t\t\t\t\t\t<button mat-button><i class='fa fa-trash fa-2x' (click)=\"delete(task)\"></i></button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -356,6 +503,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainComponent", function() { return MainComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _data_storage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data-storage.service */ "./src/app/data-storage.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _pareto_pareto_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pareto/pareto.component */ "./src/app/main/pareto/pareto.component.ts");
+/* harmony import */ var _abc_abc_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./abc/abc.component */ "./src/app/main/abc/abc.component.ts");
+/* harmony import */ var _eizenhauer_eizenhauer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./eizenhauer/eizenhauer.component */ "./src/app/main/eizenhauer/eizenhauer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -367,18 +518,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
 var MainComponent = /** @class */ (function () {
-    function MainComponent(dataStorage) {
+    function MainComponent(dataStorage, dialog) {
         this.dataStorage = dataStorage;
+        this.dialog = dialog;
         this.testDataKey = 'SMAdata';
         this.taskList = [];
     }
     MainComponent.prototype.ngOnInit = function () {
         if (this.dataStorage.getData(this.testDataKey)) {
             this.taskList = this.dataStorage.getData(this.testDataKey);
+            console.log(this.sortTasks(this.taskList));
         }
         else {
             this.taskList = this.storeTestData();
+            console.log(this.sortTasks(this.taskList));
         }
     };
     MainComponent.prototype.ngOnDestroy = function () {
@@ -397,19 +555,109 @@ var MainComponent = /** @class */ (function () {
         this.taskList.push({ name: name, priority: 0, isDone: false, editorMode: false, usedMethod: 'none' });
         this.newTaskName = '';
     };
+    MainComponent.prototype.handlePriorityChange = function (taskList) {
+        this.sortTasks(taskList);
+    };
+    MainComponent.prototype.enterAddTask = function (event, name) {
+        if (event.keyCode == 13) {
+            this.addNew(name);
+        }
+    };
+    MainComponent.prototype.usePareto = function (taskList) {
+        var allTasks = taskList.length;
+        var mainTasks = Math.round(allTasks * 0.2);
+        var otherTasks = Math.round(allTasks * 0.8);
+        var taskWord = mainTasks > 1 ? 'задачах' : 'задачі';
+        this.message = "\u0417\u0433\u0456\u0434\u043D\u043E \u0437 \u043F\u0440\u0438\u043D\u0446\u0438\u043F\u043E\u043C \u043F\u0430\u0440\u0435\u0442\u043E \u0412\u0430\u043C \u0441\u043B\u0456\u0434 \u043F\u0440\u0438\u0434\u0456\u043B\u0438\u0442\u0438 \u0431\u0456\u043B\u044C\u0448\u0435 \u0443\u0432\u0430\u0433\u0438 \u0456 \u0441\u043A\u043E\u043D\u0446\u0435\u043D\u0442\u0440\u0443\u0432\u0430\u0442\u0438\u0441\u044F \u043D\u0430 " + mainTasks + " " + taskWord + ", \u0456\u043D\u0448\u0456 " + otherTasks + " \u0441\u043B\u0456\u0434 \u043F\u0435\u0440\u0435\u0434\u0438\u0432\u0438\u0442\u0438\u0441\u044F \u0437\u0430 \u043F\u0440\u0456\u043E\u0440\u0456\u0442\u0435\u0442\u0430\u043C\u0438";
+        var dialogRef = this.dialog.open(_pareto_pareto_component__WEBPACK_IMPORTED_MODULE_3__["ParetoComponent"], {
+            width: '320px',
+            data: { title: 'Принцип Парето', message: this.message }
+        });
+    };
+    MainComponent.prototype.useAbc = function (taskList) {
+        var allTasks = taskList.length;
+        var aTasks = Math.round(allTasks * 0.15);
+        var bTasks = Math.round(allTasks * 0.2);
+        var cTasks = Math.round(allTasks * 0.65);
+        var dialogRef = this.dialog.open(_abc_abc_component__WEBPACK_IMPORTED_MODULE_4__["AbcComponent"], {
+            data: {
+                title: 'Аналіз АБВ',
+                taskList: taskList,
+                aTasks: "\u041F\u043E\u0442\u0440\u0456\u0431\u043D\u0430 \u043A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u0437\u0430\u0434\u0430\u0447 \u0434\u043B\u044F \u0431\u043B\u043E\u043A\u0443 : " + aTasks,
+                bTasks: "\u041F\u043E\u0442\u0440\u0456\u0431\u043D\u0430 \u043A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u0437\u0430\u0434\u0430\u0447 \u0434\u043B\u044F \u0431\u043B\u043E\u043A\u0443 : " + bTasks,
+                cTasks: "\u041F\u043E\u0442\u0440\u0456\u0431\u043D\u0430 \u043A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u0437\u0430\u0434\u0430\u0447 \u0434\u043B\u044F \u0431\u043B\u043E\u043A\u0443 : " + cTasks
+            }
+        });
+    };
+    MainComponent.prototype.useEizenhauer = function (taskList) {
+        var dialogRef = this.dialog.open(_eizenhauer_eizenhauer_component__WEBPACK_IMPORTED_MODULE_5__["EizenhauerComponent"], {
+            data: {
+                title: 'Метод Ейзенхауера',
+                taskList: taskList
+            }
+        });
+    };
     MainComponent.prototype.storeTestData = function () {
         var testData = [
             {
-                name: 'Розробити новий маршрут перевезень',
+                name: 'Задача 1',
                 priority: 1,
                 isDone: true,
                 editorMode: false,
                 usedMethod: 'none'
             },
-            { name: 'Зустрітися з новим клієнтом', priority: 2, isDone: false, editorMode: false, usedMethod: 'none' },
             {
-                name: 'Сформувати графік відпусток',
+                name: 'Задача 2',
+                priority: 2,
+                isDone: false,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 3',
                 priority: 3,
+                isDone: false,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 4',
+                priority: 4,
+                isDone: true,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 5',
+                priority: 5,
+                isDone: false,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 6',
+                priority: 6,
+                isDone: false,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 7',
+                priority: 7,
+                isDone: true,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 8',
+                priority: 8,
+                isDone: false,
+                editorMode: false,
+                usedMethod: 'none'
+            },
+            {
+                name: 'Задача 9',
+                priority: 9,
                 isDone: false,
                 editorMode: false,
                 usedMethod: 'none'
@@ -417,15 +665,91 @@ var MainComponent = /** @class */ (function () {
         ];
         return testData;
     };
+    MainComponent.prototype.sortTasks = function (taskList) {
+        taskList.sort(function (a, b) {
+            return a.priority - b.priority;
+        });
+        return taskList;
+    };
     MainComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-main',
             template: __webpack_require__(/*! ./main.component.html */ "./src/app/main/main.component.html"),
             styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/main/main.component.css")]
         }),
-        __metadata("design:paramtypes", [_data_storage_service__WEBPACK_IMPORTED_MODULE_1__["DataStorageService"]])
+        __metadata("design:paramtypes", [_data_storage_service__WEBPACK_IMPORTED_MODULE_1__["DataStorageService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], MainComponent);
     return MainComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main/pareto/pareto.component.css":
+/*!**************************************************!*\
+  !*** ./src/app/main/pareto/pareto.component.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/main/pareto/pareto.component.html":
+/*!***************************************************!*\
+  !*** ./src/app/main/pareto/pareto.component.html ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{data.title}}</h1>\n<div mat-dialog-content>\n\t<p>{{data.message}}</p>\n</div>\n<div mat-dialog-actions>\n\t\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/main/pareto/pareto.component.ts":
+/*!*************************************************!*\
+  !*** ./src/app/main/pareto/pareto.component.ts ***!
+  \*************************************************/
+/*! exports provided: ParetoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParetoComponent", function() { return ParetoComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ParetoComponent = /** @class */ (function () {
+    function ParetoComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ParetoComponent.prototype.ngOnInit = function () { };
+    ParetoComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-pareto',
+            template: __webpack_require__(/*! ./pareto.component.html */ "./src/app/main/pareto/pareto.component.html"),
+            styles: [__webpack_require__(/*! ./pareto.component.css */ "./src/app/main/pareto/pareto.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+    ], ParetoComponent);
+    return ParetoComponent;
 }());
 
 
