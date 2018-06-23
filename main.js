@@ -336,7 +336,7 @@ var InfoComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "[matInput] {\r\n\tborder-top: 1px black solid;\r\n}\r\n"
+module.exports = "[matInput] {\r\n\tbox-sizing: border-box;\r\n\tborder-top: 1px #000 solid;\r\n\tborder-left: 1px #fff solid;\r\n\tborder-right: 1px #fff solid;\r\n\tborder-bottom: 1px #fff solid;\r\n\ttransition: all 0.5s;\r\n}\r\n\r\n[matInput]:focus {\r\n\tbox-sizing: border-box;\r\n\tborder-top: 1px #000 solid;\r\n\tborder-left: 1px #000 solid;\r\n\tborder-right: 1px #000 solid;\r\n\tborder-bottom: 1px #000 solid;\r\n}\r\n"
 
 /***/ }),
 
@@ -406,7 +406,7 @@ var AbcComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "[matInput] {\r\n\tborder-top: 1px black solid;\r\n}\r\n"
+module.exports = "[matInput] {\r\n\tbox-sizing: border-box;\r\n\tborder-top: 1px #000 solid;\r\n\tborder-left: 1px #fff solid;\r\n\tborder-right: 1px #fff solid;\r\n\tborder-bottom: 1px #fff solid;\r\n\ttransition: all 0.5s;\r\n}\r\n\r\n[matInput]:focus {\r\n\tbox-sizing: border-box;\r\n\tborder-top: 1px #000 solid;\r\n\tborder-left: 1px #000 solid;\r\n\tborder-right: 1px #000 solid;\r\n\tborder-bottom: 1px #000 solid;\r\n}\r\n"
 
 /***/ }),
 
